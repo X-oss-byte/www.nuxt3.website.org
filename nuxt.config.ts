@@ -10,5 +10,6 @@ export default defineNuxtConfig({
     // 'aos/dist/aos.css',
     // 'highlight.js/styles/github.css',
   ],
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss'],
+
+  modules: ['@nuxt/content', '@nuxt/image-edge', '@nuxtjs/tailwindcss'],
 });

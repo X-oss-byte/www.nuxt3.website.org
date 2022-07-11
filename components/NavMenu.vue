@@ -22,7 +22,7 @@
             itemtype="https://schema.org/ImageObject"
             itemid="shipshapelogo"
           >
-            <NuxtImg
+            <nuxt-img
               alt="Ship Shape Logo"
               class="h-[50px] w-auto"
               itemprop="url"
@@ -46,7 +46,7 @@
           class="flex items-center px-3 py-2 text-grey hover:text-navy text-xl"
           @click="toggleNavMenu(true)"
         >
-          <InlineSvg class="hamburger-menu" src="/svgs/menu.svg" />
+          <inline-svg class="hamburger-menu" src="/svgs/menu.svg" />
         </button>
       </div>
 
@@ -58,7 +58,7 @@
               class="cursor-pointer"
               @click="toggleNavMenu(false)"
             >
-              <InlineSvg class="h-10 m-2 p-2 w-10" src="/svgs/close.svg" />
+              <inline-svg class="h-10 m-2 p-2 w-10" src="/svgs/close.svg" />
             </button>
           </div>
 
