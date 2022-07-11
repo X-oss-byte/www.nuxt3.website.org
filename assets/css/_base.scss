@@ -1,0 +1,295 @@
+// Shevy
+
+$shevy: (
+  base-font-scale: (
+    3.5,
+    2.5,
+    2,
+    1.5,
+    1.25,
+    1
+  ),
+  base-font-size: 18px,
+  base-line-height: 1.667,
+  proximity: true // proximity-factor: 0.5
+);
+
+@include headings;
+@include body;
+@include content;
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  @apply duration-200 text-red transition-all no-underline;
+
+  &:active,
+  &:visited {
+    @apply text-red;
+  }
+
+  &:hover {
+    @apply text-navy;
+  }
+}
+
+html,
+body {
+  @apply m-0 p-0 overflow-x-hidden w-full;
+}
+
+body {
+  @apply bg-white text-grey-light;
+  font-family: 'Pier Sans', sans-serif;
+  font-weight: lighter;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply heading;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    @apply leading-tight text-5xl;
+  }
+}
+
+.fill-white {
+  path {
+    fill: var(--white);
+  }
+}
+
+.hero {
+  padding: 2rem;
+}
+
+.learn-more {
+  @apply font-normal text-navy;
+
+  svg {
+    @apply duration-200 fill-navy ml-1 transition-all;
+  }
+
+  &:active,
+  &:visited {
+    @apply text-navy;
+  }
+
+  &:hover {
+    @apply cursor-pointer text-red;
+
+    svg {
+      @apply fill-red translate-x-2;
+
+      > * {
+        fill: var(--red);
+      }
+    }
+  }
+}
+
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-content {
+  @apply max-w-8xl w-full;
+}
+
+.blob {
+  position: relative;
+
+  &::before {
+    background-image: url(/svgs/contact-blob.svg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 2072px;
+    top: -275px;
+    content: '';
+    height: 1250px;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+  }
+
+  // @media only screen and (max-width: 1024px) {
+  //   &::before {
+  //     background-size: cover;
+  //     width: 500vw;
+  //   }
+  // }
+
+  @media only screen and (min-width: 2065px) {
+    &::before {
+      background-size: 101vw;
+      height: 1400px;
+      top: -400px;
+    }
+  }
+
+  @media only screen and (min-width: 2300px) {
+    &::before {
+      height: calc(1400px + ((100vw - 2300px) * 0.75));
+      top: calc(-400px - ((100vw - 2300px) * 0.75));
+    }
+  }
+}
+
+.waves {
+  position: relative;
+
+  &::after {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 2560px;
+    bottom: -95px;
+    content: '';
+    height: 160px;
+    position: absolute;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 2560px) {
+    &::after {
+      background-size: 101vw;
+      height: 200px;
+    }
+  }
+}
+
+.blue-waves {
+  &::after {
+    background-image: url(/svgs/waves/waves.svg);
+  }
+}
+
+.cloud-native-waves {
+  &::after {
+    background-image: url(/svgs/waves/cloud-native-waves.svg);
+    background-size: 100vw;
+    bottom: -20px;
+    height: 200px;
+  }
+
+  @media only screen and (min-width: 1910px) {
+    &::after {
+      background-size: 101vw;
+      bottom: -70px;
+      height: 320px;
+    }
+  }
+}
+
+.ember-waves {
+  &::after {
+    background-image: url(/svgs/waves/ember-waves.svg);
+    background-size: 100vw;
+    bottom: -5px;
+    height: 165px;
+  }
+
+  @media only screen and (min-width: 2050px) {
+    &::after {
+      background-size: 101vw;
+      bottom: -50px;
+      height: 300px;
+    }
+  }
+}
+
+.next-waves {
+  &::after {
+    background-image: url(/svgs/waves/next-waves.svg);
+    background-size: 100vw;
+    bottom: -20px;
+    height: 165px;
+  }
+
+  @media only screen and (min-width: 2050px) {
+    &::after {
+      background-size: 101vw;
+      bottom: -70px;
+      height: 300px;
+    }
+  }
+
+  @media only screen and (min-width: 3008px) {
+    &::after {
+      bottom: -80px;
+      height: 450px;
+    }
+  }
+}
+
+.nuxt-waves {
+  &::after {
+    background-image: url(/svgs/waves/nuxt-waves.svg);
+    background-size: 2050px;
+    bottom: -20px;
+    height: 200px;
+  }
+
+  @media only screen and (min-width: 2050px) {
+    &::after {
+      background-size: 101vw;
+      height: 300px;
+    }
+  }
+
+  @media only screen and (min-width: 3008px) {
+    &::after {
+      height: 330px;
+    }
+  }
+}
+
+.serverless-waves {
+  &::after {
+    background-image: url(/svgs/waves/serverless-waves.svg);
+    background-size: 1910px;
+    bottom: -20px;
+    height: 250px;
+  }
+
+  @media only screen and (min-width: 1910px) {
+    &::after {
+      background-size: 101vw;
+      bottom: -50px;
+      height: 350px;
+    }
+  }
+}
+
+.tailwind-waves {
+  &::after {
+    background-image: url(/svgs/waves/tailwind-waves.svg);
+    background-size: 2050px;
+    bottom: -20px;
+    height: 200px;
+  }
+
+  @media only screen and (min-width: 2050px) {
+    &::after {
+      background-size: 101vw;
+      height: 300px;
+    }
+  }
+}
+
+.white-waves {
+  &::after {
+    background-image: url(/svgs/waves/white-waves.svg);
+  }
+}
