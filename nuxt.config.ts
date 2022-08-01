@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     // 'highlight.js/styles/github.css',
   ],
 
+  image: {
+    dir: 'assets/images'
+  },
+
   modules: ['@nuxt/image-edge', '@nuxtjs/tailwindcss'],
 
   vite: {
