@@ -43,17 +43,13 @@
 
 <script>
 import { generateMeta } from '~/utils/meta';
-import {
-  sephoraTestimonial,
-  expelTestimonial
-} from '~/testimonials/index.js';
+import { sephoraTestimonial, expelTestimonial } from '~/testimonials/index.js';
 
 export default {
-  async asyncData({ $content }) {
-    const posts = await $content('blog/posts')
-      .sortBy('date', 'desc')
-      .limit(3)
-      .fetch();
+  async setup() {
+    const { data: posts } = await useAsyncData('posts-list', () =>
+      queryContent('/blog').sort({ date: -1 }).limit(3).find()
+    );
 
     const testimonials = [sephoraTestimonial, expelTestimonial];
     return { posts, testimonials };
@@ -65,6 +61,6 @@ export default {
     const url = 'https://shipshape.io/';
 
     return generateMeta(title, description, url);
-  }
+  },
 };
 </script>

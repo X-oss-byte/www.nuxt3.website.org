@@ -13,10 +13,10 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    dir: 'assets/images'
+    dir: 'assets/images',
   },
 
-  modules: ['@nuxt/image-edge', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxt/content', '@nuxt/image-edge', '@nuxtjs/tailwindcss'],
 
   vite: {
     css: {
@@ -27,4 +27,24 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  // hooks: {
+  //   'content:file:beforeInsert': async (document, database) => {
+  //     if (document.extension === '.md' && document.dir === '/blog') {
+  //       const html = converter.makeHtml(document.text);
+  //       const description = truncate(html.replace(/(<([^>]+)>)/gi, ''), {
+  //         length: 260,
+  //         separator: /,?\.* +/,
+  //       });
+
+  //       document.description = description;
+
+  //       const author = await database
+  //         .query(`/blog/authors/${document.authorId}`)
+  //         .fetch();
+
+  //       document.author = author;
+  //     }
+  //   },
+  // },
 });

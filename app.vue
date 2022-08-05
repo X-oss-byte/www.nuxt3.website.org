@@ -18,6 +18,6 @@
       <NuxtPage />
     </main>
 
-    <!-- <WaveFooter /> -->
+    <WaveFooter />
   </div>
 </template>

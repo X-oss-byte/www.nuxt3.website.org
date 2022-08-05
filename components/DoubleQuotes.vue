@@ -4,17 +4,7 @@
     data-aos="fade"
   >
     <div
-      class="
-        section-content
-        bg-navy
-        grid grid-cols-1
-        gap-y-10
-        mb-16
-        p-4
-        rounded-md
-        lg:mb-20
-        xl:grid-cols-2 xl:py-20
-      "
+      class="section-content bg-navy grid grid-cols-1 gap-y-10 mb-16 p-4 rounded-md lg:mb-20 xl:grid-cols-2 xl:py-20"
     >
       <div
         v-for="testimonial in testimonials"
@@ -27,17 +17,7 @@
         />
 
         <inline-svg
-          class="
-            absolute
-            h-auto
-            mt-[2.75rem]
-            top-0
-            transform
-            translate-y-6
-            w-10
-            z-0
-            xl:mt-12 xl:w-16 xl:translate-y-0
-          "
+          class="absolute h-auto mt-[2.75rem] top-0 transform translate-y-6 w-10 z-0 xl:mt-12 xl:w-16 xl:translate-y-0"
           src="/svgs/quotes.svg"
         />
 
@@ -70,8 +50,8 @@ export default {
   props: {
     testimonials: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   }
 };
 </script>
