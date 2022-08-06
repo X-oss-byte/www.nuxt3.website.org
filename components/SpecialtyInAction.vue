@@ -12,19 +12,11 @@
         >
           <nuxt-link :to="`/work/${study.linkName}/`">
             <div
-              class="
-                bg-blue-light
-                flex
-                h-full
-                relative
-                w-full
-                transition-all
-                hover:-translate-y-5
-              "
+              class="bg-blue-light flex h-full relative w-full transition-all hover:-translate-y-5"
               :class="{
                 'flex-col rounded-b-md': caseStudies.length > 1,
                 'flex-col rounded-b-md lg:flex-row-reverse lg:rounded-b-none lg:rounded-l-md':
-                  caseStudies.length === 1
+                  caseStudies.length === 1,
               }"
             >
               <div
@@ -32,15 +24,7 @@
               >
                 <h3>
                   <inline-svg
-                    class="
-                      logo-navy
-                      h-8
-                      max-w-full
-                      mb-8
-                      self-start
-                      w-auto
-                      pointer-events-none
-                    "
+                    class="logo-navy h-8 max-w-full mb-8 self-start w-auto pointer-events-none"
                     :src="study.logoSrc"
                   />
                 </h3>
@@ -50,40 +34,26 @@
 
                 <span class="dive-deeper">
                   Dive deeper
-                  <inline-svg class="h-4 inline w-6" src="/svgs/arrow.svg" />
+                  <Arrow class="h-4 inline w-6" />
                 </span>
               </div>
               <div
-                class="
-                  bg-red
-                  flex
-                  items-end
-                  justify-center
-                  px-8
-                  relative
-                  lg:pt-12 lg:px-12
-                "
+                class="bg-red flex items-end justify-center px-8 relative lg:pt-12 lg:px-12"
                 :class="{
                   'pt-8  rounded-t-md': caseStudies.length > 1,
                   'pt-12 rounded-t-md lg:rounded-t-none lg:rounded-r-md lg:w-5/12 xl:pt-24 xl:px-12':
-                    caseStudies.length === 1
+                    caseStudies.length === 1,
                 }"
               >
                 <div
                   class="bg-white rounded-t-md w-full"
                   :class="{
                     'h-48': caseStudies.length > 1,
-                    'h-56': caseStudies.length === 1
+                    'h-56': caseStudies.length === 1,
                   }"
                 >
                   <nuxt-img
-                    class="
-                      object-cover object-top
-                      h-full
-                      max-w-full
-                      rounded-t-md
-                      w-full
-                    "
+                    class="object-cover object-top h-full max-w-full rounded-t-md w-full"
                     :src="study.imgSrc"
                     :alt="study.imgAlt"
                   />
@@ -97,19 +67,19 @@
   </section>
 </template>
 
-<script>
-export default {
-  props: {
-    specialty: {
-      type: String,
-      default: ''
-    },
-    caseStudies: {
-      type: Array,
-      required: true
-    }
-  }
-};
+<script setup>
+import Arrow from '~/assets/images/svgs/arrow.svg';
+
+const props = defineProps({
+  specialty: {
+    type: String,
+    default: '',
+  },
+  caseStudies: {
+    type: Array,
+    required: true,
+  },
+});
 </script>
 
 <style lang="scss">

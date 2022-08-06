@@ -28,8 +28,7 @@ generates auto completes for other utilities by parsing their man pages, neat!
 
 <a href="https://starship.rs/">
   <video muted="muted" autoplay="autoplay" loop="loop" playsinline="" class="demo-video">
-    <source src="/video/demo.webm" type="video/webm"> 
-    <source src="/video/demo.mp4" type="video/mp4">
+    <source src="/video/demo.webm" type="video/webm">
   </video>
 </a>
 

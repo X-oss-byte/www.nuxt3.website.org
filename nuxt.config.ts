@@ -2,18 +2,53 @@ import { defineNuxtConfig } from 'nuxt';
 import Fonts from 'vite-plugin-fonts';
 import svgLoader from 'vite-svg-loader';
 
+const imgSrc = 'http://i.imgur.com/30OI4fv.png';
+const twitterUsername = '@shipshapecode';
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   target: 'static',
+  // ssr: true,
   /*
    ** Global CSS
    */
   css: [
-    'virtual:fonts.css',
-    '~/assets/css/main.scss',
-    // 'aos/dist/aos.css',
-    // 'highlight.js/styles/github.css',
+    // 'virtual:fonts.css',
+    '~/assets/css/main.scss'
   ],
+
+  /*
+   ** Headers of the page
+   */
+  head: {
+    titleTemplate: '%s | Ship Shape',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'referrer', content: 'unsafe-url' },
+      { property: 'og:site_name', content: 'Ship Shape' },
+
+      // Opengraph
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:image', property: 'og:image', content: imgSrc },
+      { hid: 'og:image:type', property: 'og:image:type', content: 'image/png' },
+      { hid: 'og:image:height', property: 'og:image:height', content: '256' },
+      { hid: 'og:image:width', property: 'og:image:width', content: '256' },
+
+      // Twitter
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+      { hid: 'twitter:site', name: 'twitter:site', content: twitterUsername },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: twitterUsername,
+      },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: imgSrc },
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+  },
 
   image: {
     dir: 'assets/images',
@@ -30,13 +65,23 @@ export default defineNuxtConfig({
       },
     },
     plugins: [
-      Fonts({
-        custom: {
-          families: [{ name: 'Pier Sans', src: '~/assets/fonts/*.woff2' }],
-        },
-      }),
+      // Fonts({
+      //   custom: {
+      //     families: [{ name: 'Pier Sans', src: '~/assets/fonts/*.woff2' }],
+      //   },
+      // }),
       svgLoader(),
     ],
+  },
+
+  content: {
+    highlight: {
+      theme: {
+        default: 'github-light',
+        dark: 'github-dark',
+        sepia: 'monokai',
+      },
+    },
   },
 
   // hooks: {

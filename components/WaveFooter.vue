@@ -1,9 +1,16 @@
+<script setup>
+import GitHub from '~/assets/images/svgs/github.svg';
+import LinkedIn from '~/assets/images/svgs/linkedin.svg';
+import Logo from '~/assets/images/svgs/logo.svg';
+import Twitter from '~/assets/images/svgs/twitter.svg';
+</script>
+
 <template>
   <footer class="wave text-base">
     <div class="footer-bottom flex flex-wrap w-full justify-center">
       <div class="max-w-8xl p-8 w-full">
         <div class="flex justify-center lg:justify-start w-full">
-          <inline-svg class="footer-logo h-20 w-20" src="/svgs/logo.svg" />
+          <Logo class="footer-logo h-20 w-20" />
         </div>
         <nav
           class="grid grid-cols-2 max-w-5xl pt-12 pb-12 w-full lg:grid-cols-4"
@@ -121,13 +128,7 @@
         </nav>
 
         <div
-          class="
-            flex flex-wrap
-            items-center
-            justify-center
-            w-full
-            lg:justify-start
-          "
+          class="flex flex-wrap items-center justify-center w-full lg:justify-start"
         >
           <div class="flex justify-center w-full lg:justify-start">
             <div class="social-links flex items-center pl-2 pr-2 justify-start">
@@ -230,9 +231,3 @@
   }
 }
 </style>
-
-<script setup>
-import GitHub from '~/assets/images/svgs/github.svg';
-import LinkedIn from '~/assets/images/svgs/linkedin.svg';
-import Twitter from '~/assets/images/svgs/twitter.svg';
-</script>

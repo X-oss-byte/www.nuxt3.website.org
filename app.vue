@@ -21,3 +21,28 @@
     <WaveFooter />
   </div>
 </template>
+
+<script setup>
+useHead({
+  link: [
+    {
+      rel: 'preload',
+      href: '~/assets/fonts/PierSans-Bold.woff2',
+      as: 'font',
+      type: 'font/woff2',
+    },
+    {
+      rel: 'preload',
+      href: '~/assets/fonts/PierSans-Light.woff2',
+      as: 'font',
+      type: 'font/woff2',
+    },
+    {
+      rel: 'preload',
+      href: '~/assets/fonts/PierSans-Regular.woff2',
+      as: 'font',
+      type: 'font/woff2',
+    },
+  ],
+});
+</script>

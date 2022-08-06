@@ -48,7 +48,7 @@ import { sephoraTestimonial, expelTestimonial } from '~/testimonials/index.js';
 export default {
   async setup() {
     const { data: posts } = await useAsyncData('posts-list', () =>
-      queryContent('/blog').sort({ date: -1 }).limit(3).find()
+      queryContent('blog').sort({ date: -1 }).limit(3).find()
     );
 
     const testimonials = [sephoraTestimonial, expelTestimonial];

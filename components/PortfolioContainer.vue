@@ -1,21 +1,17 @@
+<script setup>
+import AngleRight from '~/assets/images/svgs/angle-right.svg';
+import Shepherd from '~/assets/images/svgs/shepherd.svg';
+</script>
+
 <template>
   <div>
     <div
-      class="
-        portfolio-container
-        section
-        flex flex-wrap
-        justify-center
-        bg-blue-light
-      "
+      class="portfolio-container section flex flex-wrap justify-center bg-blue-light"
     >
       <div class="section-content">
         <div class="flex flex-wrap justify-center">
           <div class="project flex-1" data-aos="flip-up">
-            <inline-svg
-              class="shepherd-logo h-48 -ml-6 p-6 w-48"
-              src="/svgs/shepherd.svg"
-            />
+            <Shepherd class="shepherd-logo h-48 -ml-6 p-6 w-48" />
 
             <h2 class="text-navy">Shepherd.js, Designed for Product Tours</h2>
 
@@ -30,10 +26,7 @@
             <p>
               <nuxt-link class="learn-more" to="/services/app-tours/">
                 Learn more
-                <inline-svg
-                  class="h-4 inline w-4"
-                  src="/svgs/angle-right.svg"
-                />
+                <AngleRight class="h-4 inline w-4" />
               </nuxt-link>
             </p>
           </div>
@@ -83,10 +76,7 @@
                     itemprop="codeRepository"
                   >
                     View on GitHub
-                    <inline-svg
-                      class="h-4 inline w-4"
-                      src="/svgs/angle-right.svg"
-                    />
+                    <AngleRight class="h-4 inline w-4" />
                   </a>
                 </p>
               </div>
@@ -108,8 +98,8 @@
 
                 <p>
                   ember-math-helpers was inspired by the elegant simplicity of
-                  <a href="https://github.com/jmurphyau/ember-truth-helpers"
-                    >ember-truth-helpers</a
+                  <a href="https://github.com/jmurphyau/ember-truth-helpers">
+                    ember-truth-helpers </a
                   >. It aims to be a complete set of helpers for quick
                   mathematical computations in your templates.
                 </p>
@@ -121,7 +111,7 @@
                     itemprop="codeRepository"
                   >
                     View on GitHub
-                    <inline-svg
+                    <AngleRight
                       class="h-4 inline w-4"
                       src="/svgs/angle-right.svg"
                     />
@@ -159,9 +149,8 @@
                     itemprop="codeRepository"
                   >
                     View on GitHub
-                    <inline-svg
+                    <AngleRight
                       class="h-4 inline w-4"
-                      src="/svgs/angle-right.svg"
                     />
                   </a>
                 </p>
