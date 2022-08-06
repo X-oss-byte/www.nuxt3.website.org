@@ -19,13 +19,7 @@
           </div>
 
           <div
-            class="
-              absolute
-              bottom-0
-              text-center
-              w-full
-              lg:bottom-auto lg:relative
-            "
+            class="absolute bottom-0 text-center w-full lg:bottom-auto lg:relative"
           >
             <nuxt-img
               alt="Ship Shape octopus mascot in an innertube"
@@ -45,15 +39,7 @@
         </div>
 
         <div
-          class="
-            grid grid-cols-1
-            gap-x-12
-            p-10
-            bg-blue-light
-            rounded
-            lg:col-span-2 lg:grid-cols-2
-            xl:px-16
-          "
+          class="grid grid-cols-1 gap-x-12 p-10 bg-blue-light rounded lg:col-span-2 lg:grid-cols-2 xl:px-16"
         >
           <div
             v-for="(trait, index) in traits"
@@ -62,10 +48,7 @@
             data-aos="flip-down"
             :data-aos-delay="index * 200"
           >
-            <inline-svg
-              class="absolute -ml-8 mt-2 w-4 h-4"
-              src="/svgs/check.svg"
-            />
+            <Check class="absolute -ml-8 mt-2 w-4 h-4" />
 
             <h5>{{ trait.title }}</h5>
             <p>
@@ -78,6 +61,10 @@
   </div>
 </template>
 
+<script setup>
+import Check from '~/assets/images/svgs/check.svg';
+</script>
+
 <script>
 export default {
   data() {
@@ -86,35 +73,35 @@ export default {
         {
           title: 'Full-stack',
           description:
-            'Once you hire us, it’s smooth sailing. We’re ready to tackle everything tech, including frontend and backend system design.'
+            'Once you hire us, it’s smooth sailing. We’re ready to tackle everything tech, including frontend and backend system design.',
         },
         {
           title: 'Specialized',
           description:
-            'We’re trusted experts in Ember.js, Nuxt.js, Next.js, and other emerging technologies.'
+            'We’re trusted experts in Ember.js, Nuxt.js, Next.js, and other emerging technologies.',
         },
         {
           title: 'Future-forward',
           description:
-            'We build innovative, secure, scalable solutions, while keeping your team on track with the latest trends and best practices.'
+            'We build innovative, secure, scalable solutions, while keeping your team on track with the latest trends and best practices.',
         },
         {
           title: 'Collaborative',
           description:
-            'A rising tide lifts all boats. We improve your products by providing expert engineering and upskilling your team.'
+            'A rising tide lifts all boats. We improve your products by providing expert engineering and upskilling your team.',
         },
         {
           title: 'IQ + EQ',
           description:
-            'With people skills as strong as our technical chops, your experience with our software consultants is just as good as the work delivered.'
+            'With people skills as strong as our technical chops, your experience with our software consultants is just as good as the work delivered.',
         },
         {
           title: 'Seamless',
           description:
-            'The engineer who plans your product’s success is the same person who writes the code. No handoffs or middlemen around here.'
-        }
-      ]
+            'The engineer who plans your product’s success is the same person who writes the code. No handoffs or middlemen around here.',
+        },
+      ],
     };
-  }
+  },
 };
 </script>

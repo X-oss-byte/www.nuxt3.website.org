@@ -16,9 +16,8 @@
           :src="testimonial.svgSrc"
         />
 
-        <inline-svg
+        <Quotes
           class="absolute h-auto mt-[2.75rem] top-0 transform translate-y-6 w-10 z-0 xl:mt-12 xl:w-16 xl:translate-y-0"
-          src="/svgs/quotes.svg"
         />
 
         <p class="flex-grow p-4 relative z-10 xl:p-8">
@@ -45,6 +44,10 @@
   </div>
 </template>
 
+<script setup>
+import Quotes from '~/assets/images/svgs/quotes.svg';
+</script>
+
 <script>
 export default {
   props: {
@@ -52,6 +55,6 @@ export default {
       type: Array,
       default: () => [],
     },
-  }
+  },
 };
 </script>

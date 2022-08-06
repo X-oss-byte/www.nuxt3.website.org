@@ -137,7 +137,7 @@
                 href="https://github.com/shipshapecode"
               >
                 <div class="github-logo">
-                  <inline-svg src="/svgs/github.svg" />
+                  <GitHub />
                 </div>
               </a>
               <a
@@ -146,7 +146,7 @@
                 href="https://twitter.com/shipshapecode"
               >
                 <div class="twitter-logo">
-                  <inline-svg src="/svgs/twitter.svg" />
+                  <Twitter />
                 </div>
               </a>
               <a
@@ -155,7 +155,7 @@
                 href="https://www.linkedin.com/company/ship-shape/"
               >
                 <div class="linkedin-logo">
-                  <inline-svg src="/svgs/linkedin.svg" />
+                  <LinkedIn />
                 </div>
               </a>
             </div>
@@ -230,3 +230,9 @@
   }
 }
 </style>
+
+<script setup>
+import GitHub from '~/assets/images/svgs/github.svg';
+import LinkedIn from '~/assets/images/svgs/linkedin.svg';
+import Twitter from '~/assets/images/svgs/twitter.svg';
+</script>

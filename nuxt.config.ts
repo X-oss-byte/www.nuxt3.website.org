@@ -1,4 +1,6 @@
 import { defineNuxtConfig } from 'nuxt';
+import Fonts from 'vite-plugin-fonts';
+import svgLoader from 'vite-svg-loader';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -7,6 +9,7 @@ export default defineNuxtConfig({
    ** Global CSS
    */
   css: [
+    'virtual:fonts.css',
     '~/assets/css/main.scss',
     // 'aos/dist/aos.css',
     // 'highlight.js/styles/github.css',
@@ -26,6 +29,14 @@ export default defineNuxtConfig({
         },
       },
     },
+    plugins: [
+      Fonts({
+        custom: {
+          families: [{ name: 'Pier Sans', src: '~/assets/fonts/*.woff2' }],
+        },
+      }),
+      svgLoader(),
+    ],
   },
 
   // hooks: {
