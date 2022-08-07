@@ -84,12 +84,9 @@ export default defineNuxtConfig({
 
   content: {
     highlight: {
-      preload: ['css', 'handlebars', 'scss', 'js', 'ts', 'tsx'],
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
-        sepia: 'monokai',
-      },
+      preload: ['css', 'handlebars', 'scss', 'js', 'json', 'ts', 'tsx'],
+      // TODO: support multiple themes later
+      theme: 'github-light'
     },
   },
 
