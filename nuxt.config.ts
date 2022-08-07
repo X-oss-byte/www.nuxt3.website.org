@@ -12,10 +12,7 @@ export default defineNuxtConfig({
   /*
    ** Global CSS
    */
-  css: [
-    // 'virtual:fonts.css',
-    '~/assets/css/main.scss',
-  ],
+  css: ['~/assets/css/main.scss'],
 
   /*
    ** Headers of the page
@@ -82,18 +79,12 @@ export default defineNuxtConfig({
         },
       },
     },
-    plugins: [
-      // Fonts({
-      //   custom: {
-      //     families: [{ name: 'Pier Sans', src: '~/assets/fonts/*.woff2' }],
-      //   },
-      // }),
-      svgLoader(),
-    ],
+    plugins: [svgLoader()],
   },
 
   content: {
     highlight: {
+      preload: ['css', 'handlebars', 'scss', 'js', 'ts', 'tsx'],
       theme: {
         default: 'github-light',
         dark: 'github-dark',

@@ -1,3 +1,29 @@
+<script setup>
+const { data: posts } = await useAsyncData('posts-list', () =>
+  queryContent('blog').sort({ date: -1 }).limit(3).find()
+);
+</script>
+
+<script>
+import { generateMeta } from '~/utils/meta';
+import { sephoraTestimonial, expelTestimonial } from '~/testimonials/index.js';
+
+export default {
+  data() {
+    const testimonials = [sephoraTestimonial, expelTestimonial];
+    return { testimonials };
+  },
+  head() {
+    const title = 'Top-Tier, Full-Stack Software Consultants';
+    const description =
+      "Ship Shape's app development company offers a top-tier team of on-shore, full-stack software consultants who can't wait to build or improve your product.";
+    const url = 'https://shipshape.io/';
+
+    return generateMeta(title, description, url);
+  },
+};
+</script>
+
 <template>
   <div class="relative">
     <HeroBlock hero-classes="home bg-blue-light">
@@ -40,27 +66,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import { generateMeta } from '~/utils/meta';
-import { sephoraTestimonial, expelTestimonial } from '~/testimonials/index.js';
-
-export default {
-  async setup() {
-    const { data: posts } = await useAsyncData('posts-list', () =>
-      queryContent('blog').sort({ date: -1 }).limit(3).find()
-    );
-
-    const testimonials = [sephoraTestimonial, expelTestimonial];
-    return { posts, testimonials };
-  },
-  head() {
-    const title = 'Top-Tier, Full-Stack Software Consultants';
-    const description =
-      "Ship Shape's app development company offers a top-tier team of on-shore, full-stack software consultants who can't wait to build or improve your product.";
-    const url = 'https://shipshape.io/';
-
-    return generateMeta(title, description, url);
-  },
-};
-</script>
