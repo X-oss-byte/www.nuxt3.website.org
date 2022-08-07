@@ -1,3 +1,28 @@
+<script setup>
+import truncate from 'lodash.truncate';
+
+let latestPodcastEpisode = {};
+const { data: podcastData } = await useAsyncData('podcast-data', () =>
+  $fetch('https://player.megaphone.fm/playlist/PODRYL5396410253/')
+);
+
+latestPodcastEpisode = podcastData?.value?.episodes[0];
+
+const description = truncate(
+  latestPodcastEpisode?.summary?.replace(/(<([^>]+)>)/gi, ''),
+  {
+    length: 260,
+    separator: /,?\.* +/,
+  }
+);
+
+latestPodcastEpisode.description = description;
+
+const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
+  queryContent('blog').only(['title', 'slug']).sort({ date: -1 }).findOne()
+);
+</script>
+
 <template>
   <article>
     <HeroBlock hero-classes="about bg-blue-light">
@@ -90,11 +115,7 @@
             <ul>
               <li v-for="(employee, index) in mgmt" :key="employee.name">
                 <div
-                  class="
-                    flex flex-col
-                    gap-y-8
-                    lg:flex-row lg:items-center lg:gap-x-24 lg:pb-28
-                  "
+                  class="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-x-24 lg:pb-28"
                   data-aos="flip-up"
                 >
                   <div class="space-y-8">
@@ -135,17 +156,7 @@
                     </ul>
                   </div>
                   <nuxt-img
-                    class="
-                      filter
-                      h-auto
-                      grayscale
-                      object-cover
-                      order-first
-                      shadow-lg
-                      rounded-lg
-                      w-full
-                      lg:w-88
-                    "
+                    class="filter h-auto grayscale object-cover order-first shadow-lg rounded-lg w-full lg:w-88"
                     :class="{ 'lg:order-last': index % 2 !== 0 }"
                     format="webp"
                     height="734"
@@ -158,15 +169,7 @@
             </ul>
 
             <ul
-              class="
-                space-y-24
-                lg:space-y-0
-                lg:grid
-                lg:grid-cols-2
-                lg:gap-x-8
-                lg:gap-y-28
-                lg:pb-24
-              "
+              class="space-y-24 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-28 lg:pb-24"
             >
               <li v-for="employee in team" :key="employee.name">
                 <div
@@ -233,10 +236,7 @@
     <div class="section flex flex-wrap justify-center bg-white">
       <div class="section-content flex flex-col divide-y-2 divide-[#D8E3E8]">
         <div
-          class="
-            py-24
-            lg:flex lg:flex-row lg:place-content-between lg:items-center
-          "
+          class="py-24 lg:flex lg:flex-row lg:place-content-between lg:items-center"
           data-aos="fade-down"
         >
           <div>
@@ -258,12 +258,7 @@
             <h3 class="py-12">Latest Podcast</h3>
             <div
               :key="latestPodcastEpisode.title"
-              class="
-                items-center
-                grid grid-cols-1
-                pb-12
-                lg:gap-12 lg:grid-cols-9
-              "
+              class="items-center grid grid-cols-1 pb-12 lg:gap-12 lg:grid-cols-9"
             >
               <nuxt-img
                 class="h-auto m-auto max-w-md w-full pb-10 lg:col-span-2"
@@ -285,10 +280,7 @@
                 </p>
               </div>
               <a
-                class="
-                  learn-more
-                  lg:col-span-2 lg:justify-self-end lg:self-end lg:pb-16
-                "
+                class="learn-more lg:col-span-2 lg:justify-self-end lg:self-end lg:pb-16"
                 href="https://www.whiskeywebandwhatnot.fm/"
               >
                 Dive Deeper
@@ -300,12 +292,7 @@
             <h3 class="py-12">Latest Blog Post</h3>
             <div
               :key="latestBlogPost.slug"
-              class="
-                items-center
-                grid grid-cols-1
-                pb-12
-                lg:gap-12 lg:grid-cols-9
-              "
+              class="items-center grid grid-cols-1 pb-12 lg:gap-12 lg:grid-cols-9"
             >
               <nuxt-img
                 class="h-auto m-auto max-w-md w-full pb-10 lg:col-span-2"
@@ -327,10 +314,7 @@
                 </p>
               </div>
               <nuxt-link
-                class="
-                  learn-more
-                  lg:col-span-2 lg:justify-self-end lg:self-end lg:pb-16
-                "
+                class="learn-more lg:col-span-2 lg:justify-self-end lg:self-end lg:pb-16"
                 :to="`/blog/${latestBlogPost.slug}/`"
               >
                 Dive Deeper
@@ -368,14 +352,7 @@
     </section>
 
     <div
-      class="
-        waves
-        blue-waves
-        section
-        bg-blue-light
-        flex flex-wrap
-        justify-center
-      "
+      class="waves blue-waves section bg-blue-light flex flex-wrap justify-center"
     >
       <div class="section-content py-20">
         <section class="flex flex-wrap justify-center" data-aos="fade">
@@ -394,13 +371,7 @@
                     how we can help you get there.
                   </p>
                   <div
-                    class="
-                      flex
-                      justify-center
-                      mt-3
-                      w-full
-                      lg:justify-start lg:mt-8
-                    "
+                    class="flex justify-center mt-3 w-full lg:justify-start lg:mt-8"
                   >
                     <nuxt-link
                       class="btn btn-red w-full lg:w-auto"
@@ -430,71 +401,34 @@
 </template>
 
 <script>
-import truncate from 'lodash.truncate';
 import { formatDateWithDots } from '~/utils/date';
 import { generateMeta } from '~/utils/meta';
 import { employeeInfo } from '~/info/employee-info';
 
 export default {
-  speedkitComponents: {
-    BenefitsList: () => import('@/components/BenefitsList'),
-    FunFacts: () => import('@/components/FunFacts'),
-    HeroBlock: () => import('@/components/HeroBlock')
-  },
-
-  async asyncData({ $content }) {
-    let latestPodcastEpisode = {};
-    try {
-      const response = await fetch(
-        'https://player.megaphone.fm/playlist/PODRYL5396410253/'
-      );
-      const podcastData = await response.json();
-      latestPodcastEpisode = podcastData?.episodes[0];
-
-      const description = truncate(
-        latestPodcastEpisode?.summary?.replace(/(<([^>]+)>)/gi, ''),
-        {
-          length: 260,
-          separator: /,?\.* +/
-        }
-      );
-
-      latestPodcastEpisode.description = description;
-    } catch {}
-
-    const content = await $content('blog/posts')
-      .sortBy('date', 'desc')
-      .limit(1)
-      .fetch();
-
-    const latestBlogPost = content[0];
-
-    return { latestPodcastEpisode, latestBlogPost };
-  },
-
   data() {
     const { mgmt, team } = employeeInfo;
     return {
       benefits: [
         {
           imgSrc: '/svgs/icons/client.svg',
-          description: 'Strategic Nuxt.js partners'
+          description: 'Strategic Nuxt.js partners',
         },
         {
           imgSrc: '/svgs/icons/staff.svg',
-          description: 'Active GitHub contributors'
+          description: 'Active GitHub contributors',
         },
         {
           imgSrc: '/svgs/icons/fun.svg',
-          description: 'Local tech meetup hosts'
+          description: 'Local tech meetup hosts',
         },
         {
           imgSrc: '/svgs/icons/pwa.svg',
-          description: 'Whiskey, Web & Whatnot podcasters'
-        }
+          description: 'Whiskey, Web & Whatnot podcasters',
+        },
       ],
       mgmt,
-      team
+      team,
     };
   },
 
@@ -508,8 +442,8 @@ export default {
   },
 
   methods: {
-    formatDateWithDots
-  }
+    formatDateWithDots,
+  },
 };
 </script>
 

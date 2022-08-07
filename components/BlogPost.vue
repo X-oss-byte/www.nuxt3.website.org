@@ -1,3 +1,50 @@
+<script setup>
+const props = defineProps({
+  post: {
+    type: Object,
+    default: () => {},
+  },
+});
+
+let previousPost;
+let nextPost;
+
+if (props.post) {
+  const { data: response } = await useAsyncData('surround-posts', () =>
+    queryContent('blog')
+      .sort({ date: 1 })
+      .findSurround({ _path: props.post._path })
+  );
+
+  if (response?.value) {
+    nextPost = response.value[0];
+    previousPost = response.value[1];
+
+    if (!previousPost) {
+      const { data: firstPost } = await useAsyncData('first-post', () =>
+        queryContent('blog').only(['title', 'slug']).sort({ date: 1 }).findOne()
+      );
+
+      if (firstPost) {
+        previousPost = firstPost;
+      }
+    }
+    if (!nextPost) {
+      const { data: latestPost } = await useAsyncData('latest-post', () =>
+        queryContent('blog')
+          .only(['title', 'slug'])
+          .sort({ date: -1 })
+          .findOne()
+      );
+
+      if (latestPost) {
+        nextPost = latestPost;
+      }
+    }
+  }
+}
+</script>
+
 <template>
   <article itemscope itemtype="http://schema.org/BlogPosting">
     <link itemprop="mainEntityOfPage" :href="$route.path" />
@@ -12,78 +59,15 @@
 
         <!-- <AuthorRow v-bind="post.author" :date="post.date" /> -->
 
-        <ContentRenderer class="post-content" :value="post"/>
+        <ContentRenderer class="post-content" :value="post" />
 
-        <ContentQuery find="surround" :path="post._path" v-slot="{ data }">
-          <BottomLinks
-            :next-link="`/blog/${data[0]?.slug}/`"
-            :next-link-text="data[0]?.title"
-            :previous-link="`/blog/${data[1]?.slug}/`"
-            :previous-link-text="data[1]?.title"
-          />
-        </ContentQuery>
+        <BottomLinks
+          :next-link="`/blog/${nextPost.slug}/`"
+          :next-link-text="nextPost.title"
+          :previous-link="`/blog/${previousPost.slug}/`"
+          :previous-link-text="previousPost.title"
+        />
       </div>
     </div>
   </article>
 </template>
-
-<script setup>
-const props = defineProps({
-  post: {
-    type: Object,
-    default: () => {},
-  },
-});
-
-debugger;
-</script>
-<script>
-export default {
-  async setup() {
-    debugger;
-    if (props.post) {
-      debugger;
-      const {
-        data: [nextPost, previousPost],
-      } = await useAsyncData('surround-posts', () =>
-        queryContent('blog')
-          .only(['title', 'slug'])
-          .sort({ date: 1 })
-          .findSurround(props.post._path)
-      );
-      if (!previousPost) {
-        const { data: firstPost } = await useAsyncData('first-post', () =>
-          queryContent('blog')
-            .only(['title', 'slug'])
-            .sort({ date: 1 })
-            .findOne()
-        );
-        if (lastPost) {
-          previousPost = firstPost;
-        }
-      }
-      if (!nextPost) {
-        const { data: lastPost } = await useAsyncData('last-post', () =>
-          queryContent('blog')
-            .only(['title', 'slug'])
-            .sort({ date: -1 })
-            .findOne()
-        );
-        if (lastPost) {
-          nextPost = lastPost;
-        }
-      }
-      debugger;
-      return {
-        post: {
-          ...post,
-          nextSlug: nextPost.slug,
-          nextTitle: nextPost.title,
-          previousSlug: previousPost.slug,
-          previousTitle: previousPost.title,
-        },
-      };
-    }
-  },
-};
-</script>
