@@ -14,7 +14,7 @@ export default defineNuxtConfig({
    */
   css: [
     // 'virtual:fonts.css',
-    '~/assets/css/main.scss'
+    '~/assets/css/main.scss',
   ],
 
   /*
@@ -46,7 +46,25 @@ export default defineNuxtConfig({
       { hid: 'twitter:image:src', name: 'twitter:image:src', content: imgSrc },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'preload',
+        href: '~/assets/fonts/PierSans-Bold.woff2',
+        as: 'font',
+        type: 'font/woff2',
+      },
+      {
+        rel: 'preload',
+        href: '~/assets/fonts/PierSans-Light.woff2',
+        as: 'font',
+        type: 'font/woff2',
+      },
+      {
+        rel: 'preload',
+        href: '~/assets/fonts/PierSans-Regular.woff2',
+        as: 'font',
+        type: 'font/woff2',
+      },
     ],
   },
 
