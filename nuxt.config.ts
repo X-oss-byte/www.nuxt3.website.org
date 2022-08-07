@@ -14,55 +14,65 @@ export default defineNuxtConfig({
    */
   css: ['~/assets/css/main.scss'],
 
-  /*
-   ** Headers of the page
-   */
-  head: {
-    titleTemplate: '%s | Ship Shape',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'referrer', content: 'unsafe-url' },
-      { property: 'og:site_name', content: 'Ship Shape' },
+  app: {
+    /*
+     ** Headers of the page
+     */
+    head: {
+      titleTemplate: '%s | Ship Shape',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'referrer', content: 'unsafe-url' },
+        { property: 'og:site_name', content: 'Ship Shape' },
 
-      // Opengraph
-      { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:image', property: 'og:image', content: imgSrc },
-      { hid: 'og:image:type', property: 'og:image:type', content: 'image/png' },
-      { hid: 'og:image:height', property: 'og:image:height', content: '256' },
-      { hid: 'og:image:width', property: 'og:image:width', content: '256' },
+        // Opengraph
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:image', property: 'og:image', content: imgSrc },
+        {
+          hid: 'og:image:type',
+          property: 'og:image:type',
+          content: 'image/png',
+        },
+        { hid: 'og:image:height', property: 'og:image:height', content: '256' },
+        { hid: 'og:image:width', property: 'og:image:width', content: '256' },
 
-      // Twitter
-      { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
-      { hid: 'twitter:site', name: 'twitter:site', content: twitterUsername },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: twitterUsername,
-      },
-      { hid: 'twitter:image:src', name: 'twitter:image:src', content: imgSrc },
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'preload',
-        href: '~/assets/fonts/PierSans-Bold.woff2',
-        as: 'font',
-        type: 'font/woff2',
-      },
-      {
-        rel: 'preload',
-        href: '~/assets/fonts/PierSans-Light.woff2',
-        as: 'font',
-        type: 'font/woff2',
-      },
-      {
-        rel: 'preload',
-        href: '~/assets/fonts/PierSans-Regular.woff2',
-        as: 'font',
-        type: 'font/woff2',
-      },
-    ],
+        // Twitter
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+        { hid: 'twitter:site', name: 'twitter:site', content: twitterUsername },
+        {
+          hid: 'twitter:creator',
+          name: 'twitter:creator',
+          content: twitterUsername,
+        },
+        {
+          hid: 'twitter:image:src',
+          name: 'twitter:image:src',
+          content: imgSrc,
+        },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        {
+          rel: 'preload',
+          href: '/fonts/PierSans-Bold.woff2',
+          as: 'font',
+          type: 'font/woff2',
+        },
+        {
+          rel: 'preload',
+          href: '/fonts/PierSans-Light.woff2',
+          as: 'font',
+          type: 'font/woff2',
+        },
+        {
+          rel: 'preload',
+          href: '/fonts/PierSans-Regular.woff2',
+          as: 'font',
+          type: 'font/woff2',
+        },
+      ],
+    },
   },
 
   image: {
@@ -86,7 +96,7 @@ export default defineNuxtConfig({
     highlight: {
       preload: ['css', 'handlebars', 'scss', 'js', 'json', 'ts', 'tsx'],
       // TODO: support multiple themes later
-      theme: 'github-light'
+      theme: 'github-light',
     },
   },
 
