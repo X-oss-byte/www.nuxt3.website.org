@@ -1,4 +1,8 @@
 <script setup>
+import Arrow from '~/assets/images/svgs/arrow.svg';
+import GitHub from '~/assets/images/svgs/github.svg';
+import LinkedIn from '~/assets/images/svgs/linkedin.svg';
+import Twitter from '~/assets/images/svgs/twitter.svg';
 import truncate from 'lodash.truncate';
 
 let latestPodcastEpisode = {};
@@ -129,27 +133,24 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
                       <li>
                         <a :href="employee.github" class="github-logo">
                           <span class="sr-only">GitHub</span>
-                          <inline-svg
+                          <GitHub
                             aria-hidden="true"
-                            src="/svgs/github.svg"
                           />
                         </a>
                       </li>
                       <li>
                         <a :href="employee.linkedin" class="linkedin-logo">
                           <span class="sr-only">LinkedIn</span>
-                          <inline-svg
+                          <LinkedIn
                             aria-hidden="true"
-                            src="/svgs/linkedin.svg"
                           />
                         </a>
                       </li>
                       <li v-if="employee.twitter">
                         <a :href="employee.twitter" class="twitter-logo">
                           <span class="sr-only">Twitter</span>
-                          <inline-svg
+                          <Twitter
                             aria-hidden="true"
-                            src="/svgs/twitter.svg"
                           />
                         </a>
                       </li>
@@ -188,27 +189,24 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
                       <li class="mb-0">
                         <a :href="employee.github" class="github-logo">
                           <span class="sr-only">GitHub</span>
-                          <inline-svg
+                          <GitHub
                             aria-hidden="true"
-                            src="/svgs/github.svg"
                           />
                         </a>
                       </li>
                       <li class="mb-0">
                         <a :href="employee.linkedin" class="linkedin-logo">
                           <span class="sr-only">LinkedIn</span>
-                          <inline-svg
+                          <LinkedIn
                             aria-hidden="true"
-                            src="/svgs/linkedin.svg"
                           />
                         </a>
                       </li>
                       <li v-if="employee.twitter" class="mb-0">
                         <a :href="employee.twitter" class="twitter-logo">
                           <span class="sr-only">Twitter</span>
-                          <inline-svg
+                          <Twitter
                             aria-hidden="true"
-                            src="/svgs/twitter.svg"
                           />
                         </a>
                       </li>
@@ -284,7 +282,7 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
                 href="https://www.whiskeywebandwhatnot.fm/"
               >
                 Dive Deeper
-                <inline-svg class="h-4 inline w-6" src="/svgs/arrow.svg" />
+                <Arrow class="h-4 inline w-6" />
               </a>
             </div>
           </div>
@@ -318,7 +316,7 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
                 :to="`/blog/${latestBlogPost.slug}/`"
               >
                 Dive Deeper
-                <inline-svg class="h-4 inline w-6" src="/svgs/arrow.svg" />
+                <Arrow class="h-4 inline w-6" />
               </nuxt-link>
             </div>
           </div>

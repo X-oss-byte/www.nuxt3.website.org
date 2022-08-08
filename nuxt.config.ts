@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from 'nuxt';
-import Fonts from 'vite-plugin-fonts';
 import svgLoader from 'vite-svg-loader';
+import { viteRequire } from 'vite-require';
 
 const imgSrc = 'http://i.imgur.com/30OI4fv.png';
 const twitterUsername = '@shipshapecode';
@@ -89,7 +89,7 @@ export default defineNuxtConfig({
         },
       },
     },
-    plugins: [svgLoader()],
+    plugins: [svgLoader(), viteRequire()],
   },
 
   content: {

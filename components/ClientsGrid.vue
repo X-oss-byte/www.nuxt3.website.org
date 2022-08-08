@@ -42,7 +42,7 @@
 
     <div>
       <a href="https://anvyl.com/" aria-label="Anvyl">
-        <inline-svg class="h-8 mb-3 w-auto" src="/svgs/clients/anvyl.svg" />
+        <Icon class="h-8 mb-3 w-auto" path="svgs/clients/anvyl" />
       </a>
       <p>
         Our team collaborated with the engineers behind Anvyl’s supplier

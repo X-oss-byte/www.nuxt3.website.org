@@ -26,13 +26,7 @@
       </div>
 
       <a
-        class="
-          learn-more
-          mt-12
-          self-start
-          whitespace-nowrap
-          lg:ml-24 lg:self-end
-        "
+        class="learn-more mt-12 self-start whitespace-nowrap lg:ml-24 lg:self-end"
         :href="
           mediaType === 'podcast'
             ? 'https://www.whiskeywebandwhatnot.fm/'
@@ -40,38 +34,42 @@
         "
       >
         Dive Deeper
-        <inline-svg class="h-4 inline w-6" src="/svgs/arrow.svg" />
+        <Arrow class="h-4 inline w-6" />
       </a>
     </article>
   </section>
 </template>
 
+<script setup>
+import Arrow from '~/assets/images/svgs/arrow.svg';
+
+const props = defineProps({
+  mediaType: {
+    type: String,
+    default: 'blog post',
+  },
+  imgSrc: {
+    type: String,
+    default: '/img/about/desk.jpg',
+  },
+  imgHeight: {
+    type: String,
+    default: '500',
+  },
+  imgWidth: {
+    type: String,
+    default: '500',
+  },
+  details: {
+    type: Object,
+    default: () => {},
+  },
+});
+</script>
 <script>
 import { formatDateWithDots } from '~/utils/date';
 
 export default {
-  props: {
-    mediaType: {
-      type: String,
-      default: 'blog post'
-    },
-    imgSrc: {
-      type: String,
-      default: '/img/about/desk.jpg'
-    },
-    imgHeight: {
-      type: String,
-      default: '500'
-    },
-    imgWidth: {
-      type: String,
-      default: '500'
-    },
-    details: {
-      type: Object,
-      default: () => {}
-    }
-  },
   methods: {
     formatDateWithDots
   }

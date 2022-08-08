@@ -20,10 +20,10 @@
           :case-study-link="service.caseStudyLink"
         >
           <template #header>
-            <inline-svg
+            <Icon
               class="h-auto nested-svg"
               :class="service.logoClasses"
-              :src="service.logoSrc"
+              :path="service.logoSrc"
             />
           </template>
           <template #description>
@@ -45,7 +45,7 @@ const headerImage = {
 const services = [
   {
     logoClasses: 'w-20 pb-6 lg:w-32 lg:pb-12',
-    logoSrc: '/svgs/technologies/ember.svg',
+    logoSrc: 'svgs/technologies/ember',
     description:
       "One of the best frameworks for fast, reliable builds, especially complex apps and dashboards. Ember's opinionated structure lends well to efficiency and organization.",
     learnMoreLink: '/services/ember-consulting/',
@@ -53,7 +53,7 @@ const services = [
   },
   {
     logoClasses: 'w-24 pb-6 lg:w-40 lg:pt-5 lg:pb-12',
-    logoSrc: '/svgs/technologies/nuxt.svg',
+    logoSrc: 'svgs/technologies/nuxt',
     description:
       'A performant framework used to create flexible, universal Vue.js web apps, thanks to its simple routing and out-of-the-box optimizations.',
     learnMoreLink: '/services/nuxt-consulting/',
@@ -61,7 +61,7 @@ const services = [
   },
   {
     logoClasses: 'w-20 pb-6 lg:w-32 lg:pb-12',
-    logoSrc: '/svgs/technologies/next.svg',
+    logoSrc: 'svgs/technologies/next',
     description:
       'A nimble React framework for production with lots of magic built in, from server-side rendering for enhanced SEO to internationalization features.',
     learnMoreLink: '/services/next-consulting/',
@@ -69,7 +69,7 @@ const services = [
   },
   {
     logoClasses: 'w-36 pb-8 lg:w-52 lg:pt-5 lg:pb-20',
-    logoSrc: '/svgs/technologies/tailwind.svg',
+    logoSrc: 'svgs/technologies/tailwind',
     description:
       'Match mocks from designers with ease, and automagically remove all unused CSS with this convenient framework.',
     learnMoreLink: '/services/tailwind-consulting/',
@@ -77,7 +77,7 @@ const services = [
   },
   {
     logoClasses: 'w-36 pb-8 lg:w-52 lg:pt-5 lg:pb-20',
-    logoSrc: '/svgs/technologies/serverless.svg',
+    logoSrc: 'svgs/technologies/serverless',
     description:
       'Only pay for the computing you need, scale quickly, and reduce maintenance with serverless applications. We’ll show you how.',
     learnMoreLink: '/services/serverless-consulting/',
@@ -85,7 +85,7 @@ const services = [
   },
   {
     logoClasses: 'w-36 pb-8 lg:w-52 lg:pt-5 lg:pb-20',
-    logoSrc: '/svgs/technologies/cncf.svg',
+    logoSrc: 'svgs/technologies/cncf',
     description:
       'Say goodbye to being locked into vendors, and deliver well-tested, secure products faster with this platform-agnostic methodology.',
     learnMoreLink: '/services/cloud-native-consulting/',

@@ -46,7 +46,7 @@
           class="flex items-center px-3 py-2 text-grey hover:text-navy text-xl"
           @click="toggleNavMenu(true)"
         >
-          <inline-svg class="hamburger-menu" src="/svgs/menu.svg" />
+          <Menu class="hamburger-menu" />
         </button>
       </div>
 
@@ -58,7 +58,7 @@
               class="cursor-pointer"
               @click="toggleNavMenu(false)"
             >
-              <inline-svg class="h-10 m-2 p-2 w-10" src="/svgs/close.svg" />
+              <Close class="h-10 m-2 p-2 w-10" />
             </button>
           </div>
 
@@ -106,6 +106,11 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+import Close from '~/assets/images/svgs/close.svg';
+import Menu from '~/assets/images/svgs/menu.svg';
+</script>
 
 <script>
 export default {

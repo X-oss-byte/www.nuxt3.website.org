@@ -23,9 +23,9 @@
                 class="flex flex-col flex-grow p-8 relative order-last lg:p-12"
               >
                 <h3>
-                  <inline-svg
+                  <Icon
                     class="logo-navy h-8 max-w-full mb-8 self-start w-auto pointer-events-none"
-                    :src="study.logoSrc"
+                    :path="study.logoSrc"
                   />
                 </h3>
                 <p class="flex-grow mb-16 !text-navy">

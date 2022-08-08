@@ -6295,6 +6295,21 @@ vite-plugin-checker@^0.4.6:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
+vite-plugin-dynamic-import@^0.9.8:
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/vite-plugin-dynamic-import/-/vite-plugin-dynamic-import-0.9.9.tgz#0894840793a7c3a86f7bb3301b12b442dedb5760"
+  integrity sha512-EI+VHRd5nRj/0X6V70jfIhOyNx/S4c4VkjttTuRp2pMn5tuS/XtdjI5TTiekDmcaCXyZldvuu7kWBSb6CuIIGg==
+  dependencies:
+    fast-glob "^3.2.11"
+
+vite-require@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/vite-require/-/vite-require-0.1.2.tgz#6ebeb06937862c7dcb19c94860e49f45ddf0e623"
+  integrity sha512-rVsxEsPHY52oMXqCo5czdg6nb0KSKF1i9g7YiYuc5+QdzW37ljXkSp1MnGQESe962Uha9nJclBFhot4xGLBgKw==
+  dependencies:
+    fast-glob "^3.2.11"
+    vite-plugin-dynamic-import "^0.9.8"
+
 vite-svg-loader@^3.4.0:
   version "3.4.0"
   resolved "https://registry.npmjs.org/vite-svg-loader/-/vite-svg-loader-3.4.0.tgz"

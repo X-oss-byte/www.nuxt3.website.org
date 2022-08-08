@@ -11,9 +11,9 @@
         :key="testimonial.name"
         class="flex flex-col p-4 relative text-white xl:px-16 xl:py-0"
       >
-        <inline-svg
+        <Icon
           class="h-8 max-w-full mb-3 self-start w-auto"
-          :src="testimonial.svgSrc"
+          :path="testimonial.svgSrc"
         />
 
         <Quotes
@@ -46,15 +46,11 @@
 
 <script setup>
 import Quotes from '~/assets/images/svgs/quotes.svg';
-</script>
 
-<script>
-export default {
-  props: {
-    testimonials: {
-      type: Array,
-      default: () => [],
-    },
+const props = defineProps({
+  testimonials: {
+    type: Array,
+    default: () => [],
   },
-};
+});
 </script>
