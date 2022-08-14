@@ -443,15 +443,14 @@
   resolved "https://registry.npmjs.org/@nuxt/devalue/-/devalue-2.0.0.tgz"
   integrity sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==
 
-"@nuxt/image-edge@^1.0.0-27621400.93ce78a":
-  version "1.0.0-27621400.93ce78a"
-  resolved "https://registry.npmjs.org/@nuxt/image-edge/-/image-edge-1.0.0-27621400.93ce78a.tgz"
-  integrity sha512-t9XD2qJFvuQDSRymUxkijL1JMSHBoqbkAo1yI35lD3emataLYeDuTkrBKBLcrrp/kjA7ETAzT1qsR+2jKoXGEQ==
+"@nuxt/image-edge@^1.0.0-27657146.da85542":
+  version "1.0.0-27657146.da85542"
+  resolved "https://registry.yarnpkg.com/@nuxt/image-edge/-/image-edge-1.0.0-27657146.da85542.tgz#6e83fe69ddd409addd77133f8c4535da7d943556"
+  integrity sha512-iMDB1KR4D/2smyShDTJ2Jf1FMj42elYOWDpkHgFZvSIf7eZcg8TVGW45lTjlp7VbQ/TgC1I0kYZBEFdc1AGXrw==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.4"
     consola "^2.15.3"
     defu "^6.0.0"
-    fs-extra "^10.1.0"
     h3 "^0.7.10"
     image-meta "^0.1.1"
     node-fetch-native "^0.1.4"

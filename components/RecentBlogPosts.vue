@@ -54,7 +54,7 @@
             </NuxtLink>
 
             <div class="attribution bottom-0 mb-4">
-              <!-- By {{ post.author.name }} -->
+              By {{ post.author.name }}
             </div>
           </div>
         </div>

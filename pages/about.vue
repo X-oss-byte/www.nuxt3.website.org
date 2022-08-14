@@ -23,7 +23,7 @@ const description = truncate(
 latestPodcastEpisode.description = description;
 
 const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
-  queryContent('blog').only(['title', 'slug']).sort({ date: -1 }).findOne()
+  queryContent('blog/posts').only(['title', 'slug']).sort({ date: -1 }).findOne()
 );
 </script>
 
@@ -401,7 +401,7 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
 <script>
 import { formatDateWithDots } from '~/utils/date';
 import { generateMeta } from '~/utils/meta';
-import { employeeInfo } from '~/info/employee-info';
+import { employeeInfo } from '~/data/employee-info';
 
 export default {
   data() {

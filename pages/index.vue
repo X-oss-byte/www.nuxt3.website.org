@@ -1,6 +1,6 @@
 <script setup>
 const { data: posts } = await useAsyncData('posts-list', () =>
-  queryContent('blog').sort({ date: -1 }).limit(3).find()
+  queryContent('blog/posts').sort({ date: -1 }).limit(3).find()
 );
 </script>
 

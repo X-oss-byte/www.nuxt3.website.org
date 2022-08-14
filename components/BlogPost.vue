@@ -11,7 +11,7 @@ let nextPost;
 
 if (props.post) {
   const { data: response } = await useAsyncData('surround-posts', () =>
-    queryContent('blog')
+    queryContent('blog/posts')
       .sort({ date: 1 })
       .findSurround({ _path: props.post._path })
   );
@@ -22,7 +22,7 @@ if (props.post) {
 
     if (!previousPost) {
       const { data: firstPost } = await useAsyncData('first-post', () =>
-        queryContent('blog').only(['title', 'slug']).sort({ date: 1 }).findOne()
+        queryContent('blog/posts').only(['title', 'slug']).sort({ date: 1 }).findOne()
       );
 
       if (firstPost) {
@@ -31,7 +31,7 @@ if (props.post) {
     }
     if (!nextPost) {
       const { data: latestPost } = await useAsyncData('latest-post', () =>
-        queryContent('blog')
+        queryContent('blog/posts')
           .only(['title', 'slug'])
           .sort({ date: -1 })
           .findOne()
@@ -57,7 +57,7 @@ if (props.post) {
           {{ post.title }}
         </h1>
 
-        <!-- <AuthorRow v-bind="post.author" :date="post.date" /> -->
+        <AuthorRow v-bind="post.author" :date="post.date" />
 
         <ContentRenderer class="post-content" :value="post" />
 

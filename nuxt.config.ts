@@ -75,6 +75,10 @@ export default defineNuxtConfig({
     },
   },
 
+  nitro: {
+    plugins: ['~/server/plugins/content.ts'],
+  },
+
   image: {
     dir: 'assets/images',
   },
