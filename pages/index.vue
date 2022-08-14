@@ -1,27 +1,19 @@
 <script setup>
-const { data: posts } = await useAsyncData('posts-list', () =>
-  queryContent('blog/posts').sort({ date: -1 }).limit(3).find()
-);
-</script>
-
-<script>
 import { generateMeta } from '~/utils/meta';
 import { sephoraTestimonial, expelTestimonial } from '~/testimonials/index.js';
 
-export default {
-  data() {
-    const testimonials = [sephoraTestimonial, expelTestimonial];
-    return { testimonials };
-  },
-  head() {
-    const title = 'Top-Tier, Full-Stack Software Consultants';
-    const description =
-      "Ship Shape's app development company offers a top-tier team of on-shore, full-stack software consultants who can't wait to build or improve your product.";
-    const url = 'https://shipshape.io/';
+const testimonials = [sephoraTestimonial, expelTestimonial];
 
-    return generateMeta(title, description, url);
-  },
-};
+const { data: posts } = await useAsyncData('recent-posts-list', () =>
+  queryContent('blog/posts').sort({ date: -1 }).limit(3).find()
+);
+
+const title = 'Top-Tier, Full-Stack Software Consultants';
+const description =
+  "Ship Shape's app development company offers a top-tier team of on-shore, full-stack software consultants who can't wait to build or improve your product.";
+const url = 'https://shipshape.io/';
+
+useHead(generateMeta(title, description, url));
 </script>
 
 <template>

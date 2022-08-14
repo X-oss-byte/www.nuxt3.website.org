@@ -12,7 +12,7 @@ const { data: podcastData } = await useAsyncData('podcast-data', () =>
 
 latestPodcastEpisode = podcastData?.value?.episodes[0];
 
-const description = truncate(
+const podcastDescription = truncate(
   latestPodcastEpisode?.summary?.replace(/(<([^>]+)>)/gi, ''),
   {
     length: 260,
@@ -20,11 +20,20 @@ const description = truncate(
   }
 );
 
-latestPodcastEpisode.description = description;
+latestPodcastEpisode.description = podcastDescription;
 
 const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
-  queryContent('blog/posts').only(['title', 'slug']).sort({ date: -1 }).findOne()
+  queryContent('blog/posts')
+    .sort({ date: -1 })
+    .findOne()
 );
+
+const title = 'About Our Software Development Agency';
+const description =
+  'Meet Ship Shape, a full-stack software development agency with senior-level engineers who specialize in JavaScript frameworks, serverless architecture, & more.';
+const url = 'https://shipshape.io/about/';
+
+useHead(generateMeta(title, description, url));
 </script>
 
 <template>
@@ -133,25 +142,19 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
                       <li>
                         <a :href="employee.github" class="github-logo">
                           <span class="sr-only">GitHub</span>
-                          <GitHub
-                            aria-hidden="true"
-                          />
+                          <GitHub aria-hidden="true" />
                         </a>
                       </li>
                       <li>
                         <a :href="employee.linkedin" class="linkedin-logo">
                           <span class="sr-only">LinkedIn</span>
-                          <LinkedIn
-                            aria-hidden="true"
-                          />
+                          <LinkedIn aria-hidden="true" />
                         </a>
                       </li>
                       <li v-if="employee.twitter">
                         <a :href="employee.twitter" class="twitter-logo">
                           <span class="sr-only">Twitter</span>
-                          <Twitter
-                            aria-hidden="true"
-                          />
+                          <Twitter aria-hidden="true" />
                         </a>
                       </li>
                     </ul>
@@ -189,25 +192,19 @@ const { data: latestBlogPost } = await useAsyncData('latest-post', () =>
                       <li class="mb-0">
                         <a :href="employee.github" class="github-logo">
                           <span class="sr-only">GitHub</span>
-                          <GitHub
-                            aria-hidden="true"
-                          />
+                          <GitHub aria-hidden="true" />
                         </a>
                       </li>
                       <li class="mb-0">
                         <a :href="employee.linkedin" class="linkedin-logo">
                           <span class="sr-only">LinkedIn</span>
-                          <LinkedIn
-                            aria-hidden="true"
-                          />
+                          <LinkedIn aria-hidden="true" />
                         </a>
                       </li>
                       <li v-if="employee.twitter" class="mb-0">
                         <a :href="employee.twitter" class="twitter-logo">
                           <span class="sr-only">Twitter</span>
-                          <Twitter
-                            aria-hidden="true"
-                          />
+                          <Twitter aria-hidden="true" />
                         </a>
                       </li>
                     </ul>
@@ -428,15 +425,6 @@ export default {
       mgmt,
       team,
     };
-  },
-
-  head() {
-    const title = 'About Our Software Development Agency';
-    const description =
-      'Meet Ship Shape, a full-stack software development agency with senior-level engineers who specialize in JavaScript frameworks, serverless architecture, & more.';
-    const url = 'https://shipshape.io/about/';
-
-    return generateMeta(title, description, url);
   },
 
   methods: {

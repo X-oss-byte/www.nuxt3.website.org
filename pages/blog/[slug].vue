@@ -13,59 +13,6 @@
 // import { generateMeta } from '~/utils/meta';
 
 export default {
-  //   // scrollToTop: true,
-  // async setup() {
-  //   const route = useRoute();
-  //   const { data: posts } = await useAsyncData('current-post', () =>
-  //     queryContent('/blog/posts')
-  //       // .where({ title: 'Welcome to Shepherd 10' })
-  //       // .limit(1)
-  //       .find()
-  //   );
-  // debugger;
-  //     if (post) {
-  //       debugger;
-  //       const {
-  //         data: [nextPost, previousPost],
-  //       } = await useAsyncData('surround-posts', () =>
-  //         queryContent('/blog/posts')
-  //           .only(['title', 'slug'])
-  //           .sort({ date: 1 })
-  //           .findSurround(post.path)
-  //       );
-  //       if (!previousPost) {
-  //         const { data: firstPost } = await useAsyncData('first-post', () =>
-  //           queryContent('/blog/posts')
-  //             .only(['title', 'slug'])
-  //             .sort({ date: 1 })
-  //             .findOne()
-  //         );
-  //         if (lastPost) {
-  //           previousPost = firstPost;
-  //         }
-  //       }
-  //       if (!nextPost) {
-  //         const { data: lastPost } = await useAsyncData('last-post', () =>
-  //           queryContent('/blog/posts')
-  //             .only(['title', 'slug'])
-  //             .sort({ date: -1 })
-  //             .findOne()
-  //         );
-  //         if (lastPost) {
-  //           nextPost = lastPost;
-  //         }
-  //       }
-  //       return {
-  //         post: {
-  //           ...post,
-  //           nextSlug: nextPost.slug,
-  //           nextTitle: nextPost.title,
-  //           previousSlug: previousPost.slug,
-  //           previousTitle: previousPost.title,
-  //         },
-  //       };
-  //     }
-  // },
   //   // head() {
   //   //   const { author, date, description, slug, title } = this.post;
   //   //   const url = `https://shipshape.io/blog/${slug}/`;

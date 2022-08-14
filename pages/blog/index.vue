@@ -27,22 +27,13 @@
 </template>
 
 <script setup>
-import RSS from '~/assets/images/svgs/rss.svg';
-</script>
-
-<script>
 import { generateMeta } from '~/utils/meta';
+import RSS from '~/assets/images/svgs/rss.svg';
 
-export default {
-  scrollToTop: true,
+const title = 'Blog';
+const description =
+  'Read our blog to stay ahead of trends in Ember.js, JavaScript, and everything in between.';
+const url = 'https://shipshape.io/blog/';
 
-  head() {
-    const title = 'Blog';
-    const description =
-      'Read our blog to stay ahead of trends in Ember.js, JavaScript, and everything in between.';
-    const url = 'https://shipshape.io/blog/';
-
-    return generateMeta(title, description, url);
-  },
-};
+useHead(generateMeta(title, description, url));
 </script>
